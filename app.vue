@@ -1,8 +1,18 @@
 <template>
-  <NuxtPage></NuxtPage>
+  <NavBar
+    @mobile-menu-clicked="sideNavExpanded = !sideNavExpanded"
+  ></NavBar>
+  <SideNav
+    @close="sideNavExpanded = false"
+    :expanded="sideNavExpanded"
+  ></SideNav>
+
+  <NuxtPage />
 </template>
 
 <script setup lang="ts">
+const sideNavExpanded = ref(false);
+
 useHead({
   title: "De Codebrouwers",
   htmlAttrs: {
@@ -32,5 +42,15 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s;
+  will-change: filter;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
 }
 </style>

@@ -43,6 +43,7 @@ $padding: 3rem;
 
 .portfolio-piece {
   position: relative;
+  z-index: 1;
 
   cursor: pointer;
 

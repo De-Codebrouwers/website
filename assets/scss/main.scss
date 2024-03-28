@@ -1,4 +1,4 @@
-@import url("./reset-button.scss");
+@use "reset-button";
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -15,6 +15,7 @@ body {
 .overline {
   letter-spacing: 4px;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .title {
@@ -33,6 +34,8 @@ body {
 }
 
 button {
+  width: 100%;
+
   text-transform: uppercase;
 
   cursor: pointer;
@@ -45,7 +48,7 @@ button {
   border-radius: 0.4rem;
 
   will-change: transform;
-  transition: transform 0.1s;
+  transition: all 0.1s;
 
   &.small {
     padding: 0.75rem 1.5rem;
@@ -65,16 +68,16 @@ button {
     }
 
     &.outline {
-      outline: 2px solid rgba(0, 0, 0, 0.1);
+      outline: 2px solid rgba(0, 0, 0, 0.05);
 
       &.light {
         background: transparent;
-        outline: 2px solid rgba(255, 255, 255, 0.1);
+        outline: 2px solid rgba(255, 255, 255, 0.05);
       }
     }
   }
 
   &:hover {
-    transform: scale(1.025);
+    transform: scale(0.975);
   }
 }

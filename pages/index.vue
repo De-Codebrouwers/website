@@ -1,50 +1,50 @@
 <template>
-  <NavBar class="nav" white></NavBar>
+  <div>
+    <section class="section splash">
+      <div class="hero indent">
+        <span class="overline">Ontwikkeling met Vertrouwen</span>
+        <h1 class="title">
+          Wij ontwikkelen met passie <br />
+          software op maat.
+        </h1>
 
-  <section class="section splash">
-    <div class="hero indent">
-      <span class="overline">ONTWIKKELING MET VERTROUWEN</span>
-      <h1 class="title">
-        Wij ontwikkelen met passie <br />
-        software op maat.
-      </h1>
-
-      <div class="cto">
-        <button class="white">Contact</button>
-        <button class="translucent light">Trotse momenten</button>
+        <div class="cto">
+          <button class="white">Contact</button>
+          <button class="translucent light">Trotse Momenten</button>
+        </div>
       </div>
-    </div>
 
-    <img class="logo-part bottom" src="/logo_top_part.svg" alt="" />
-  </section>
+      <img class="logo-part bottom" src="/logo_top_part.svg" alt="" />
+    </section>
 
-  <section class="section">
-    <div class="indent">
-      <span class="overline">TROTSE MOMENTEN</span>
-      <h1 class="title small">
-        Bekijk hier de opdrachten <br />
-        waar we het meest trots op zijn.
-      </h1>
+    <section class="section">
+      <div class="indent">
+        <span class="overline">Trotse Momenten</span>
+        <h1 class="title small">
+          Bekijk hier de opdrachten <br />
+          waar we het meest trots op zijn.
+        </h1>
 
-      <div class="portfolio">
-        <PortfolioPiece
-          title="Healthy City Lab"
-          description="WordPress Plugin voor plaatsen van content en gespecialiseerd styling-advies."
-          image="https://images.unsplash.com/photo-1709377058964-929af7f2d02f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          :technique-icons="[siWordpress, siHtml5, siJavascript]"
-        ></PortfolioPiece>
+        <div class="portfolio">
+          <PortfolioPiece
+            title="Healthy City Lab"
+            description="WordPress Plugin voor plaatsen van content en gespecialiseerd styling-advies."
+            image="https://images.unsplash.com/photo-1709377058964-929af7f2d02f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            :technique-icons="[siWordpress, siHtml5, siJavascript]"
+          ></PortfolioPiece>
 
-        <PortfolioPiece
-          title="Healthy City Lab"
-          description="WordPress Plugin voor plaatsen van content en gespecialiseerd styling-advies."
-          image="https://images.unsplash.com/photo-1709377058964-929af7f2d02f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          :technique-icons="[siWordpress, siHtml5, siJavascript]"
-        ></PortfolioPiece>
+          <PortfolioPiece
+            title="Healthy City Lab"
+            description="WordPress Plugin voor plaatsen van content en gespecialiseerd styling-advies."
+            image="https://images.unsplash.com/photo-1709377058964-929af7f2d02f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            :technique-icons="[siWordpress, siHtml5, siJavascript]"
+          ></PortfolioPiece>
+        </div>
       </div>
-    </div>
 
-    <img class="logo-part top" src="/logo_bottom_part.svg" alt="" />
-  </section>
+      <img class="logo-part top" src="/logo_bottom_part.svg" alt="" />
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -63,6 +63,10 @@ import { siWordpress, siHtml5, siJavascript } from "simple-icons";
   .cto {
     display: flex;
     gap: 1rem;
+
+    button {
+      max-width: 250px;
+    }
   }
 }
 

@@ -1,36 +1,41 @@
 <template>
-  <nav class="nav">
-    <LogoHorizontal class="logo" :color="props.white ? 'white' : 'black'"></LogoHorizontal>
+  <nav :class="{ home: isHomePage }" class="nav">
+    <LogoHorizontal
+      class="logo"
+      :color="isHomePage ? 'white' : 'black'"
+    ></LogoHorizontal>
 
-    <div class="buttons">
-      <button
-        @click="$router.push('/')"
-        class="small translucent outline"
-        :class="{ light: props.white }"
-      >
-        home
-      </button>
-      <button
-        @click="$router.push('/about')"
-        class="small translucent outline"
-        :class="{ light: props.white }"
-      >
-        over
-      </button>
-      <button
-        @click="$router.push('/shouts')"
-        class="small translucent outline"
-        :class="{ light: props.white }"
-      >
-        shouts
-      </button>
-    </div>
+    <NavBarDesktopMenu v-if="isDesktop" :light="isHomePage" />
+    <NavBarMobileMenu
+      v-else
+      @click="emit('mobileMenuClicked')"
+      :light="isHomePage"
+    />
   </nav>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  white: Boolean,
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const emit = defineEmits(["mobileMenuClicked"]);
+
+const route = useRoute();
+const router = useRouter();
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const isDesktop = breakpoints.greaterOrEqual("lg");
+const isHomePage = ref(false);
+
+// this is to account for the transition between the pages
+// and the state of the home page nav bar and the other nav bars
+onMounted(() => {
+  isHomePage.value = route.path === "/";
+});
+
+router.afterEach((to, _) => {
+  setTimeout(() => {
+    isHomePage.value = to.path === "/";
+  }, 300);
 });
 </script>
 
@@ -43,18 +48,16 @@ const props = defineProps({
   width: 100vw;
   max-width: 100%;
 
+  &.home {
+    position: absolute;
+    z-index: 1;
+  }
+
   .logo {
     cursor: pointer;
     padding: 2rem;
 
     width: 300px;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 0.5rem;
-
-    padding: 0 2rem;
   }
 }
 </style>
