@@ -10,6 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   --main-color-rgb: 108, 39, 255;
+  --main-border-radius: 1rem;
 }
 
 .overline {
@@ -45,7 +46,7 @@ button {
   letter-spacing: 1px;
 
   padding: 1rem 2.5rem;
-  border-radius: 0.4rem;
+  border-radius: calc(var(--main-border-radius) / 2);
 
   will-change: transform;
   transition: all 0.1s;

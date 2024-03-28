@@ -36,7 +36,6 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-$border-radius: 1rem;
 $width: 250px;
 $height: 250px;
 $padding: 3rem;
@@ -61,7 +60,7 @@ $padding: 3rem;
 
   color: white;
 
-  border-radius: $border-radius;
+  border-radius: var(--main-border-radius);
 
   .headline {
     margin: 0;
@@ -139,7 +138,7 @@ $padding: 3rem;
     width: 100%;
     height: 100%;
 
-    border-radius: $border-radius;
+    border-radius: var(--main-border-radius);
     backdrop-filter: blur(10px);
 
     transition: background 0.25s;
