@@ -24,14 +24,11 @@ const router = useRouter();
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isDesktop = breakpoints.greaterOrEqual("lg");
-const isHomePage = ref(false);
+
+const isHomePage = ref(route.path === "/");
 
 // this is to account for the transition between the pages
 // and the state of the home page nav bar and the other nav bars
-onMounted(() => {
-  isHomePage.value = route.path === "/";
-});
-
 router.afterEach((to, _) => {
   setTimeout(() => {
     isHomePage.value = to.path === "/";
