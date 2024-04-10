@@ -5,7 +5,7 @@
       <h1 class="title small">Wie zit erachter?</h1>
 
       <div class="team">
-        <div class="profile">
+        <div class="profile" :class="{ mobile: isMobile }">
           <img class="image" src="/vincent-min.jpg" alt="" />
 
           <div class="description">
@@ -43,7 +43,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const isMobile = breakpoints.smaller("lg");
+</script>
 
 <style lang="scss" scoped>
 .team {
@@ -52,6 +57,10 @@
   .profile {
     display: flex;
     gap: 2rem;
+
+    &.mobile {
+      flex-direction: column;
+    }
 
     .description {
       max-width: 750px;
@@ -62,7 +71,7 @@
     }
 
     .image {
-      width: 300px;
+      max-width: 300px;
 
       aspect-ratio: 1/1.25;
 

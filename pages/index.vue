@@ -63,9 +63,10 @@ import { siWordpress, siHtml5, siJavascript } from "simple-icons";
   .cto {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 
     button {
-      max-width: 250px;
+      max-width: 200px;
     }
   }
 }
