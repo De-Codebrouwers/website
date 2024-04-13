@@ -27,7 +27,7 @@
     class="small translucent outline"
     :class="{ light: props.light }"
   >
-    shout's
+    shout-outs
   </button>
 </template>
 
