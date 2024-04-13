@@ -1,7 +1,5 @@
 <template>
-  <NavBar
-    @mobile-menu-clicked="sideNavExpanded = !sideNavExpanded"
-  ></NavBar>
+  <NavBar @mobile-menu-clicked="sideNavExpanded = !sideNavExpanded"></NavBar>
   <SideNav
     @close="sideNavExpanded = false"
     :expanded="sideNavExpanded"
@@ -37,7 +35,9 @@ useHead({
 });
 </script>
 
-<style>
+<style lang="scss">
+@import url("/assets/scss/main.scss");
+
 html,
 body {
   margin: 0;
